@@ -15,11 +15,11 @@
             <th>Age</th>
             <th>City</th>
         </tr>
-        {{#each persons as |person|}}
+        {{#each rows as |item|}}{{!-- "rows" var given by server.js & item var is created by us to use bellow(like for loop we use i in loop) --}}
             <tr>
-                <td>{{person.name}}</td>
-                <td>{{person.age}}</td>
-                <td>{{person.city}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.city}}</td>
             </tr>
         {{/each}}
     </table>

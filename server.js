@@ -2,18 +2,18 @@ const express = require('express')
 const app = express()
 const db = require('./db')//catching db.js
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.json())//                       enable to fetch data from "body" during post requests
+app.use(express.urlencoded({extended: true}))// if not written then req.body(data) = "undefined"(i.e no read possible)
 
-app.set("view engine","hbs")
+app.set("view engine","hbs")//denotes that view engine = hbs format
 
 app.get('/',(req,res)=>{
 
     db.getAllPersons()
-        .then((persons)=>{
-            res.render('persons',{persons})
+        .then((rows)=>{//naming "rows" var which is taking the passed data from promise in db.js file
+            res.render('persons',{rows})//telling use "persons" as hbs file name in views folder and using our named var that is taking data from promise in db.js
         })
-        .catch((err)=>{
+        .catch((err)=>{//only called in case of error
             res.send(err)
         })
 
@@ -30,7 +30,7 @@ app.get('/add',(req,res)=>{
 })
 
 app.post('/add',(req,res)=>{
-    db.addNewPerson(req.body.name,req.body.age,req.body.city)
+    db.addNewPerson(req.body.name, req.body.age, req.body.city)
         .then(()=>{
             res.redirect('/')
         })
