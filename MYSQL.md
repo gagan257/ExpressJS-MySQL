@@ -1,5 +1,5 @@
 # INSTALL ALL REQUIRED MODULES
-            ----- do npm init . -----
+            ----- do npm init -----
 ### 1---> install npm node --- {npm install node}
 ### 2---> install npm hbs --- {npm install hbs}
 ### 3---> install npm express --- {npm install express}
