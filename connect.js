@@ -1,3 +1,4 @@
+// Connecting sequelize with database using sql2
 const sequelize = require('sequelize')
 
 const db = new sequelize('mytestdb','gagan','1234',{//'database','user','password'

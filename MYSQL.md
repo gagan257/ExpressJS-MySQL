@@ -1,7 +1,7 @@
 # INSTALL ALL REQUIRED MODULES
-            ----- do npm init . -----
-1---> install npm node ---# {npm install node}
-2---> install npm hbs ---# {npm install hbs}
-3---> install npm express ---# {npm install express}
-4---> install npm sql2 ---# {npm install sql2}
-5---> install npm sequelize ---# {npm install sequelize}
+### 1---> do npm init
+### 2---> install node --- {npm install node}
+### 3---> install hbs --- {npm install hbs}
+### 4---> install express --- {npm install express}
+### 5---> install sql2 --- {npm install mysql2}
+### 6---> install sequelize --- {npm install sequelize}

@@ -1,5 +1,5 @@
 const sequelize = require('sequelize')
-const DataTypes = sequelize.DataTypes
+const DataTypes = sequelize.DataTypes//DataType keyword in sequelize enable to create obj
 
 const db = new sequelize('mytestdb','gagan','1234',{//'database','user','password'
     host: 'localhost',
@@ -7,21 +7,21 @@ const db = new sequelize('mytestdb','gagan','1234',{//'database','user','passwor
 })
 
 // creating obj
-const student = db.define('student' , {
+const student = db.define('student' , {//'student' name of table
     name:{
         type: DataTypes.STRING(40),
         allowNull: false
     },
     age:{
         type: DataTypes.INTEGER(2),
-        allowNull: true,
-        defaultValue: 0
+        allowNull: false,
+        defaultValue: -1
     },
 })
 
 const task = async()=>{
     try{
-        await db.sync()
+        await db.sync({alter: true})
 
         //insert a student
         await student.create({
@@ -35,6 +35,6 @@ const task = async()=>{
 }
 task();
 
-db.sync()
+db.sync({alter: true})
     .then(()=> console.log('Database synchronised'))
     .catch(console.error)
